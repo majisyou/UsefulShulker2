@@ -1,0 +1,21 @@
+name: UsefulShulker
+version: '${version}'
+main: com.github.majisyou.shulker.UsefulShulker
+api-version: 1.18
+authors: [ majisyou ]
+description: UsefulShulker
+
+softdepend: [GrowthBaseApi]
+commands:
+  emerald:
+    description: emerald exchange command
+    usage: "/bank"
+    aliases: [bank,emerald]
+    permission: bank.open
+permissions:
+  enderchest.open:
+    description: normal player
+    default: true
+  bank.open:
+    description: normal player
+    default: true

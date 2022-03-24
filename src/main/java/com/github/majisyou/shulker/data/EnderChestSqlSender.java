@@ -68,8 +68,8 @@ class EnderChestSqlSender extends SQLSender {
 
                 throw var3;
             }
-        } catch (SQLException var15) {
-            super.logSevere("INSERTALL " + player, var15);
+        } catch (Throwable var15) {//SQLExceptionをThrowableに置換　majisyou
+            super.logSevere("INSERTALL " + player, (Exception) var15); //(Exception) varに変更
         }
 
     }
@@ -105,8 +105,8 @@ class EnderChestSqlSender extends SQLSender {
 
                 throw var4;
             }
-        } catch (SQLException var16) {
-            super.logSevere("INSERT " + player, var16);
+        } catch (Throwable var16) { //SQLExceptionをThrowableに置換　majisyou
+            super.logSevere("INSERT " + player, (Exception) var16); //(Exception) var に置換
         }
 
     }
@@ -138,8 +138,8 @@ class EnderChestSqlSender extends SQLSender {
 
                 throw var3;
             }
-        } catch (SQLException var14) {
-            super.logWarning("DELETE FROM player_enderchest WHERE uuid = " + player.toString() + " AND page = " + page, var14);
+        } catch (Throwable var14) { //sqlsenderをThrowableに変更 majisyou
+            super.logWarning("DELETE FROM player_enderchest WHERE uuid = " + player.toString() + " AND page = " + page, (Exception) var14); //(Exception)var--に変更 majisyou
         }
 
     }
@@ -185,8 +185,8 @@ class EnderChestSqlSender extends SQLSender {
 
                 throw var3;
             }
-        } catch (SQLException var16) {
-            super.logWarning("SELECT data FROM player_enderchest WHERE uuid = " + player.toString() + " AND page = " + page, var16);
+        } catch (Throwable var16) { //SQLExceptionをThrowableに置換　majisyou
+            super.logWarning("SELECT data FROM player_enderchest WHERE uuid = " + player.toString() + " AND page = " + page, (Exception) var16); //(Exception )var--に変更 majisyou
             return null;
         }
     }

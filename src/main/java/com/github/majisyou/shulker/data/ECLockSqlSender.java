@@ -47,8 +47,8 @@ class ECLockSqlSender extends SQLSender {
 
                 throw var3;
             }
-        } catch (SQLException var14) {
-            super.logSevere("INSERT " + player, var14);
+        } catch (Throwable var14) { //SQLExceptionをThrowableに置換　majisyou
+            super.logSevere("INSERT " + player, (Exception) var14); //(Exception) var--に変更 majisyou
         }
 
     }
@@ -79,8 +79,8 @@ class ECLockSqlSender extends SQLSender {
 
                 throw var2;
             }
-        } catch (SQLException var13) {
-            super.logWarning("DELETE FROM pl_ec_unlocked_page WHERE uuid = " + player.toString(), var13);
+        } catch (Throwable var13) { //SQLExceptionをThrowableに置換　majisyou
+            super.logWarning("DELETE FROM pl_ec_unlocked_page WHERE uuid = " + player.toString(), (Exception) var13); //var--に変更 majisyou
         }
 
     }
@@ -126,8 +126,8 @@ class ECLockSqlSender extends SQLSender {
 
                 throw var1;
             }
-        } catch (SQLException var19) {
-            super.logWarning("SELECT * FROM pl_ec_unlocked_page", var19);
+        } catch (Throwable var19) { //SQLExceptionをThrowableに置換　majisyou
+            super.logWarning("SELECT * FROM pl_ec_unlocked_page", (Exception) var19); //var--に変更 majisyou
             return new HashMap();
         }
     }

@@ -35,8 +35,12 @@ public class EnderChest extends SQLInterface implements InitListener {
             public void run() {
                 EnderChest.this.connect();
                 EnderChestSqlSender sender = new EnderChestSqlSender(EnderChest.this.connectData);
-                sender.delete(uuid, page);
-                sender.insert(uuid, page, playerData);
+                try { //try catchで囲んだ majisyou
+                    sender.delete(uuid, page);
+                    sender.insert(uuid, page, playerData);
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
                 EnderChest.this.close();
                 PlayerManager.removeAsyncLock("ec", player);
             }
@@ -71,8 +75,12 @@ public class EnderChest extends SQLInterface implements InitListener {
             public void run() {
                 EnderChest.this.connect();
                 EnderChestSqlSender sender = new EnderChestSqlSender(EnderChest.this.connectData);
-                sender.delete(uuid, oldPage);
-                sender.insert(uuid, oldPage, playerData);
+                try { //trycatchで囲んだ　majisyou
+                    sender.delete(uuid, oldPage);
+                    sender.insert(uuid, oldPage, playerData);
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
                 final String data = sender.read(uuid, newPage);
                 EnderChest.this.close();
                 Bukkit.getScheduler().runTask(EnderChest.this.plugin, new Runnable() {

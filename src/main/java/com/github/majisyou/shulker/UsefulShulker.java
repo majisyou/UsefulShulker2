@@ -14,6 +14,7 @@ import com.github.majisyou.shulker.bank.command.ECSubCommand;
 import com.github.majisyou.shulker.data.ECLock;
 import com.github.majisyou.shulker.data.EnderChest;
 import com.github.majisyou.shulker.temp.MoveEnderChest;
+import com.github.majisyou.shulker.util.VersionCheck;
 import java.util.logging.Level;
 
 public final class UsefulShulker extends GrowthPlugin {
@@ -31,7 +32,8 @@ public final class UsefulShulker extends GrowthPlugin {
         } catch (Throwable e) {
             e.printStackTrace();
         }
-        if (!BaseAPI.getInstance().checkVersion("3.0.0")) {
+
+        if (!VersionCheck.upVersionCheck(BaseAPI.getInstance().getVersion(), "3.0.0", this)) {
             LogManager.logError("前提プラグイン(GrowthAPI)のバージョンが正しくありません。", this, new Throwable(), Level.SEVERE);
             PluginManager.stopServer("プラグインバージョンの不整合による", StopReason.ERROR);
         }
